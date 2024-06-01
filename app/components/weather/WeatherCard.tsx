@@ -92,7 +92,7 @@ const WeatherCard = ({
           width={20}
           alt="location"
         />
-        <p className="ml-1 font-mono tracking-wide text-primary">
+        <p className="ml-1 font-mono text-primary">
           {`${place_name}, ${place_address.replace(`${place_name}, `, '')}`}
         </p>
       </div>

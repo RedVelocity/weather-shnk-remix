@@ -112,7 +112,7 @@ const FavButton = ({ favorite, removeFavorite }: FavButtonProps) => (
       preventScrollReset={true}
     >
       <h3>{favorite.place_name}</h3>
-      <p className="font-mono secondary">{favorite.place_locality}</p>
+      <p className="secondary">{favorite.place_locality}</p>
     </Link>
     <button
       type="button"

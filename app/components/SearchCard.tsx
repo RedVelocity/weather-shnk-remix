@@ -11,11 +11,12 @@ import {
   Popover,
 } from 'react-aria-components';
 import { FormattedData } from '~/lib/types/weather';
-import { FormattedLocation } from '~/lib/types/location';
+import { FormattedLocation, Theme } from '~/lib/types/location';
 import { getPlaces } from '~/lib/actions';
 import useRecentSearch from '~/lib/hooks/useRecentSearch';
 import getTheme from '~/lib/utils/getTheme';
 import getLocationPath from '~/lib/utils/getLocationPath';
+import clsx from 'clsx';
 
 const variants = {
   animate: {
@@ -136,7 +137,7 @@ const CustomListBox = ({
   theme,
 }: {
   items: FormattedLocation[];
-  theme: 'hot' | 'mild' | 'cool';
+  theme: Theme;
 }) => (
   <ListBox items={items}>
     {(item) => (
@@ -148,9 +149,10 @@ const CustomListBox = ({
           <>
             <h5>{item.place_name}</h5>
             <p
-              className={`text-secondary dark:text-secondary-dark group-hover:text-secondary ${
-                isFocused && 'dark:text-secondary'
-              } `}
+              className={clsx(
+                'text-secondary group-hover:text-secondary',
+                isFocused ? 'dark:text-secondary' : 'dark:text-secondary-dark'
+              )}
             >
               {item.place_address}
             </p>
