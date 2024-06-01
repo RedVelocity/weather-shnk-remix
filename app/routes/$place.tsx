@@ -31,31 +31,33 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
   return [
     {
       title: `${data?.location.place_name} Weather | redvelo.site`,
-      description: `Weather for ${data?.location.place_name} is ${Math.round(
-        data?.weather.current.temp as number
-      )}°C`,
-      keywords: [
-        `weather ${data?.location.place_name}`,
-        `${data?.location.place_name} weather`,
-        'Next.js',
-        'React',
-        'JavaScript',
-        'Weather',
-        'redvelo',
-        'vercel weather',
-        'weather vercel',
-        'weather redvelocity',
-        'redvelo.site',
-        'redvelocity',
-        'redvelocity.site',
-        'redvelo.city',
-        'red velocity',
-        'weather red velocity',
-      ],
-      authors: [{ name: 'RedVelocity', url: 'https://redvelo.site' }],
-      creator: 'RedVelocity',
-      publisher: 'RedVelocity',
     },
+    {
+      name: 'description',
+      content: `Weather for any place through redvelo.site!`,
+    },
+    // {
+    //   name: 'keywords',
+    //   content: [
+    //     `weather ${data?.location.place_name}`,
+    //     `${data?.location.place_name} weather`,
+    //     'Next.js',
+    //     'React',
+    //     'JavaScript',
+    //     'Weather',
+    //     'redvelo',
+    //     'vercel weather',
+    //     'weather vercel',
+    //     'weather redvelocity',
+    //     'redvelo.site',
+    //     'redvelocity',
+    //     'redvelocity.site',
+    //     'redvelo.city',
+    //     'red velocity',
+    //     'weather red velocity',
+    //   ],
+    // },
+    { name: 'author', content: 'RedVelocity' },
   ];
 };
 

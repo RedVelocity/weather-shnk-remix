@@ -12,7 +12,10 @@
     "typecheck": "tsc",
     "typegen": "wrangler types",
     "preview": "npm run build && wrangler pages dev",
-    "cf-typegen": "wrangler types"
+    "cf-typegen": "wrangler types",
+    "git:patch": "npm run lint && npm --no-git-tag-version --no-commit-hooks version patch && git add -A && git commit -m",
+    "git:minor": "npm run lint && npm --no-git-tag-version --no-commit-hooks version minor && git add -A && git commit -m",
+    "git:major": "npm run lint && npm --no-git-tag-version --no-commit-hooks version major && git add -A && git commit -m"
   },
   "dependencies": {
     "@mantine/hooks": "^7.4.1",
@@ -53,5 +56,6 @@
   },
   "engines": {
     "node": ">=20.0.0"
-  }
+  },
+  "version": "3.0.0"
 }
