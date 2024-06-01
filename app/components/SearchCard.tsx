@@ -16,7 +16,7 @@ import { getPlaces } from '~/lib/actions';
 import useRecentSearch from '~/lib/hooks/useRecentSearch';
 import getTheme from '~/lib/utils/getTheme';
 import getLocationPath from '~/lib/utils/getLocationPath';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 
 const variants = {
   animate: {
@@ -31,12 +31,6 @@ const variants = {
     opacity: 0,
     scale: 0.9,
   },
-};
-
-const colorVariants = {
-  hot: 'rac-focus:bg-gradient-hot rac-focus:text-primary hover:bg-gradient-hot hover:text-primary',
-  mild: 'rac-focus:bg-gradient-mild rac-focus:text-primary hover:bg-gradient-mild hover:text-primary',
-  cool: 'rac-focus:bg-gradient-cool rac-focus:text-primary hover:bg-gradient-cool hover:text-primary',
 };
 
 const SearchCard = ({
@@ -130,6 +124,12 @@ const SearchCard = ({
       </ComboBox>
     </div>
   );
+};
+
+const colorVariants = {
+  hot: 'rac-focus:bg-gradient-hot rac-focus:text-primary hover:bg-gradient-hot hover:text-primary',
+  mild: 'rac-focus:bg-gradient-mild rac-focus:text-primary hover:bg-gradient-mild hover:text-primary',
+  cool: 'rac-focus:bg-gradient-cool rac-focus:text-primary hover:bg-gradient-cool hover:text-primary',
 };
 
 const CustomListBox = ({
