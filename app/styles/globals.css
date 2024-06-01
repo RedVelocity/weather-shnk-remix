@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Root Styles */
+  html {
+    @apply text-[14px] md:text-[12px] relative;
+    -webkit-tap-highlight-color: transparent;
+    font-family: 'Montserrat', sans-serif;
+  }
+  body {
+    @apply flex flex-col max-w-screen-xl min-h-screen mx-auto text-primary bg-base scroll-smooth dark:bg-base-dark dark:text-primary-dark;
+    /* background: linear-gradient(-180deg, #b5c4d6 0%, #cfd8e2 98%),
+      radial-gradient(
+        at bottom right,
+        rgba(255, 255, 255, 0.4) 0%,
+        rgba(0, 0, 0, 0.5) 100%
+      );
+    background-blend-mode: screen; */
+  }
+  h1 {
+    @apply text-4xl font-semibold tracking-wide;
+  }
+  h2 {
+    @apply text-2xl font-semibold tracking-wide;
+  }
+  h3 {
+    @apply text-xl font-semibold tracking-wide;
+  }
+  h4 {
+    @apply text-lg font-semibold tracking-wide;
+  }
+  h5 {
+    @apply text-base font-semibold tracking-wide;
+  }
+  p {
+    @apply text-base tracking-wide;
+  }
+}
+*:focus {
+  @apply outline-none ring ring-blue;
+}
+
+@layer utilities {
+  .bg-gradient-hot {
+    @apply bg-gradient-to-r from-milder to-hot;
+  }
+  .bg-gradient-cool {
+    @apply bg-gradient-to-r from-cool to-purple;
+  }
+  .bg-gradient-mild {
+    @apply bg-gradient-to-r from-mild to-milder;
+  }
+  .secondary {
+    @apply text-secondary dark:text-secondary-dark;
+  }
+}
+/* Components */
+@layer components {
+  .card {
+    @apply rounded-l rounded-br shadow rounded-tr-xl;
+  }
+  .loader {
+    @apply w-16 h-16 border-8 border-t-8 rounded-full md:h-20 md:w-20 border-base-dark border-t-blue;
+    animation: spin 2s linear infinite;
+  }
+  .pill {
+    @apply px-2 py-1 rounded-full;
+  }
+  .wrapper {
+    @apply p-4 tracking-wide card bg-wrapper/90 dark:bg-wrapper-dark/90 backdrop-blur;
+  }
+  .surface {
+    @apply bg-surface dark:bg-surface-dark;
+  }
+}
+
+/* Custom Styles */
+.hot {
+  @apply bg-hot;
+}
+.cool {
+  @apply bg-cool;
+}
+.mild {
+  @apply bg-mild;
+}
+/* Leaflet Styles */
+.leaflet-container {
+  @apply h-full;
+}
+.leaflet-control-zoom > a {
+  @apply bg-surface dark:bg-surface-dark text-primary dark:text-primary-dark hover:bg-surface/60 dark:hover:bg-surface-dark/60;
+}
+.leaflet-container .leaflet-control-attribution {
+  @apply bg-surface dark:bg-surface-dark text-secondary dark:text-secondary-dark;
+}
+div.pigeon-attribution {
+  @apply bg-surface dark:bg-surface-dark text-secondary dark:text-secondary-dark !important;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
