@@ -15,7 +15,7 @@ export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: stylesheet },
 ];
 
-export const Layout = ({ children }: { children: React.ReactNode }) => {
+export default function App() {
   return (
     <Providers>
       <html lang="en">
@@ -27,7 +27,9 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
         </head>
         <body>
           <Header hostName="redvelo.site" hostUrl="redvelo.site" />
-          {children}
+          <main className="flex-1 min-w-full">
+            <Outlet />
+          </main>
           <Footer />
           <ScrollRestoration />
           <Scripts />
@@ -35,8 +37,4 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
       </html>
     </Providers>
   );
-};
-
-export default function App() {
-  return <Outlet />;
 }
