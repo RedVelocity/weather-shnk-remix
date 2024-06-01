@@ -79,7 +79,7 @@ const WeatherCard = ({
           {`${Math.round(current.temp)}°C`}
         </motion.h1>
       </div>
-      <p className="text-right text-primary">{`Low ${Math.round(
+      <p className="font-mono text-right text-primary">{`Low ${Math.round(
         minTemp
       )}°C • High ${Math.round(maxTemp)}°C`}</p>
       <span className="block p-2 my-2 font-semibold tracking-wide text-center rounded bg-surface md:px-4 md:py-3">
@@ -92,7 +92,7 @@ const WeatherCard = ({
           width={20}
           alt="location"
         />
-        <p className="ml-1 tracking-wide text-primary">
+        <p className="ml-1 font-mono tracking-wide text-primary">
           {`${place_name}, ${place_address.replace(`${place_name}, `, '')}`}
         </p>
       </div>

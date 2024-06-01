@@ -7,7 +7,7 @@
   html {
     @apply text-[14px] md:text-[12px] relative;
     -webkit-tap-highlight-color: transparent;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Outfit', sans-serif;
   }
   body {
     @apply flex flex-col max-w-screen-xl min-h-screen mx-auto text-primary bg-base scroll-smooth dark:bg-base-dark dark:text-primary-dark;
