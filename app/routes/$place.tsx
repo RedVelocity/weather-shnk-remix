@@ -5,7 +5,7 @@ import dayjsExtended from '~/lib/utils/dayjsExtended';
 import WeatherCard from '~/components/weather/WeatherCard';
 import WeatherInfoCardList from '~/components/weather/WeatherInfoCardList';
 import HourlyWeather from '~/components/weather/HourlyWeather';
-import WeatherMap from '~/components/weather/WeatherMap';
+import WeatherMap from '~/components/map/WeatherMap';
 import DailyWeather from '~/components/weather/DailyWeather';
 import SearchCard from '~/components/SearchCard';
 import Favorites from '~/components/Favorites';

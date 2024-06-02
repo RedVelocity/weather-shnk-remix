@@ -1,6 +1,7 @@
 import { Map, Marker, ZoomControl } from 'pigeon-maps';
 import { colors, textColors } from '~/styles/colors';
 import { useTheme } from 'remix-theme';
+import { useEffect, useState } from 'react';
 
 const PigeonMap = ({
   longitude,
@@ -11,9 +12,15 @@ const PigeonMap = ({
   latitude: number;
   FE_KEY: string;
 }) => {
+  const [mounted, setMounted] = useState(false);
   const { resolvedTheme } = useTheme();
   const isDarkMode = resolvedTheme === 'dark';
   const mapStyle = isDarkMode ? 'navigation-night-v1' : 'streets-v12';
+  // To identify if it's safe to render theme on client
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  if (!mounted) return null;
   const mapTiler = (
     x: number,
     y: number,
