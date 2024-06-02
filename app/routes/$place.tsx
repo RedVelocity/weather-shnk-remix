@@ -20,9 +20,13 @@ export const loader = async ({ params, context }: LoaderFunctionArgs) => {
     location.coordinates[0],
     context.cloudflare.env.OWM_KEY
   );
+  const genTime = dayjsExtended
+    .tz(Date.now(), weather.timezone)
+    .format('HH:mm');
   return json({
     weather,
     location,
+    genTime,
     FE_KEY: context.cloudflare.env.MAPBOX_FRONTEND_KEY,
   });
 };
@@ -62,7 +66,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 };
 
 const Place = () => {
-  const { weather, location, FE_KEY } = useLoaderData<typeof loader>();
+  const { weather, location, genTime, FE_KEY } = useLoaderData<typeof loader>();
   return (
     <div className="grid gap-3 mx-4 lg:grid-cols-3">
       <section className="flex flex-col space-y-3">
@@ -92,11 +96,8 @@ const Place = () => {
       <section className="lg:col-span-2">
         <DailyWeather weather={weather} />
       </section>
-      <span className="text-sm tracking-wider text-center md:text-left md:text-lg">
-        Updated at -
-        {` ${dayjsExtended.tz(Date.now(), weather.timezone).format('HH:mm')} ${
-          weather.timezone
-        }`}
+      <span className="font-mono text-sm tracking-wider text-center md:text-left md:text-lg">
+        Updated at -{` ${genTime} ${weather.timezone}`}
       </span>
     </div>
   );
