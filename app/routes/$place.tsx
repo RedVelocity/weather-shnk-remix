@@ -1,4 +1,8 @@
-import type { LoaderFunctionArgs, MetaFunction } from '@remix-run/cloudflare';
+import type {
+  LoaderFunctionArgs,
+  MetaFunction,
+  HeadersFunction,
+} from '@remix-run/cloudflare';
 import { json, useLoaderData } from '@remix-run/react';
 import { getLocation, getWeather } from '~/lib/actions';
 import dayjsExtended from '~/lib/utils/dayjsExtended';
@@ -9,6 +13,10 @@ import WeatherMap from '~/components/map/WeatherMap';
 import DailyWeather from '~/components/weather/DailyWeather';
 import SearchCard from '~/components/SearchCard';
 import Favorites from '~/components/Favorites';
+
+export const headers: HeadersFunction = () => ({
+  'Cache-Control': 'max-age=900, must-revalidate',
+});
 export const loader = async ({ params, context }: LoaderFunctionArgs) => {
   const { place } = params;
   const location = await getLocation(
