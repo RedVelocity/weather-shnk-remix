@@ -21,14 +21,9 @@ const PigeonMap = ({
     setMounted(true);
   }, []);
   if (!mounted) return null;
-  const mapTiler = (
-    x: number,
-    y: number,
-    z: number,
-    dpr?: number | undefined
-  ) =>
+  const mapTiler = (x: number, y: number, z: number, dpr?: number) =>
     `https://api.mapbox.com/styles/v1/mapbox/${mapStyle}/tiles/256/${z}/${x}/${y}${
-      dpr >= 2 ? '@2x' : ''
+      dpr! >= 2 ? '@2x' : ''
     }?access_token=${FE_KEY}`;
 
   return (
