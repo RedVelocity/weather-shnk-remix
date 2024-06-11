@@ -1,4 +1,4 @@
-// import ThemeToggle from './ThemeToggle';
+import ThemeToggle from './ThemeToggle';
 
 const Header = ({
   hostName,
@@ -16,7 +16,7 @@ const Header = ({
     >
       {hostName}
     </a>
-    {/* <ThemeToggle /> */}
+    <ThemeToggle />
   </header>
 );
 
