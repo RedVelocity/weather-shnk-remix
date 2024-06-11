@@ -15,10 +15,10 @@ export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: stylesheet },
 ];
 
-export default function App() {
+export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <Providers>
-      <html lang="en" suppressHydrationWarning>
+      <html lang="en">
         <head>
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -37,9 +37,7 @@ export default function App() {
         </head>
         <body>
           <Header hostName="redvelo.site" hostUrl="redvelo.site" />
-          <main className="flex-1 min-w-full">
-            <Outlet />
-          </main>
+          <main className="flex-1 min-w-full">{children}</main>
           <Footer />
           <ScrollRestoration />
           <Scripts />
@@ -47,4 +45,8 @@ export default function App() {
       </html>
     </Providers>
   );
+}
+
+export default function App() {
+  return <Outlet />;
 }
