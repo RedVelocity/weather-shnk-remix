@@ -9,13 +9,13 @@ import dayjsExtended from '~/lib/utils/dayjsExtended';
 import WeatherCard from '~/components/weather/WeatherCard';
 import WeatherInfoCardList from '~/components/weather/WeatherInfoCardList';
 import HourlyWeather from '~/components/weather/HourlyWeather';
-import WeatherMap from '~/components/map/WeatherMap';
 import DailyWeather from '~/components/weather/DailyWeather';
+import WeatherMap from '~/components/map/WeatherMap';
 import SearchCard from '~/components/SearchCard';
 import Favorites from '~/components/Favorites';
 
 export const headers: HeadersFunction = () => ({
-  'Cache-Control': 'max-age=900, must-revalidate',
+  'Cache-Control': 'max-age=900, s-maxage=900, must-revalidate',
 });
 export const loader = async ({ params, context }: LoaderFunctionArgs) => {
   const { place } = params;
@@ -48,27 +48,27 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
       name: 'description',
       content: `Weather for any place through redvelo.site!`,
     },
-    // {
-    //   name: 'keywords',
-    //   content: [
-    //     `weather ${data?.location.place_name}`,
-    //     `${data?.location.place_name} weather`,
-    //     'Next.js',
-    //     'React',
-    //     'JavaScript',
-    //     'Weather',
-    //     'redvelo',
-    //     'vercel weather',
-    //     'weather vercel',
-    //     'weather redvelocity',
-    //     'redvelo.site',
-    //     'redvelocity',
-    //     'redvelocity.site',
-    //     'redvelo.city',
-    //     'red velocity',
-    //     'weather red velocity',
-    //   ],
-    // },
+    {
+      name: 'keywords',
+      content: [
+        // `weather ${data?.location.place_name}`,
+        // `${data?.location.place_name} weather`,
+        'Next.js',
+        'React',
+        'JavaScript',
+        'Weather',
+        'redvelo',
+        'vercel weather',
+        'weather vercel',
+        'weather redvelocity',
+        'redvelo.site',
+        'redvelocity',
+        'redvelocity.site',
+        'redvelo.city',
+        'red velocity',
+        'weather red velocity',
+      ],
+    },
     { name: 'author', content: 'RedVelocity' },
   ];
 };

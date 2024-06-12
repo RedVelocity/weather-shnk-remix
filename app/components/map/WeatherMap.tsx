@@ -16,7 +16,7 @@ const WeatherMap = ({
       className="h-80 md:h-full md:min-h-[250px] card overflow-hidden z-0"
       id="map"
     >
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense>
         <PigeonMap longitude={longitude} latitude={latitude} FE_KEY={FE_KEY} />
       </Suspense>
     </div>
