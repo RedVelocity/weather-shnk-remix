@@ -79,8 +79,8 @@ const Place = () => {
     <div className="grid gap-3 mx-4 lg:grid-cols-3">
       <section className="flex flex-col space-y-3">
         <SearchCard weather={weather} FE_KEY={FE_KEY} />
-        <div className="grid h-full gap-2 sm:grid-cols-2 md:grid-cols-3 lg:flex">
-          <div className="w-full md:col-span-2">
+        <div className="grid h-full gap-2 sm:grid-cols-2 lg:flex">
+          <div className="w-full">
             <WeatherCard weather={weather} location={location} />
           </div>
           <div className="sm:hidden">

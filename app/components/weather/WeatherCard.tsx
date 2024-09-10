@@ -4,6 +4,7 @@ import { FormattedLocation, Theme } from '~/lib/types/location';
 import WeatherIcon from '~/components/Icon/WeatherIcon';
 import getTheme from '~/lib/utils/getTheme';
 import { colors } from '~/styles/colors';
+import extractCountry from '~/lib/utils/extractCountry';
 
 const variants = {
   animate: { opacity: 1, y: 0 },
@@ -53,7 +54,7 @@ const WeatherCard = ({
         backgroundPosition,
         transition: 'background-position 500ms linear',
       }}
-      className="flex flex-col w-full h-full gap-2 p-4 card justify-evenly text-primary dark:filter dark:saturate-[70%]"
+      className="flex flex-col w-full h-full gap-2 p-4 card justify-evenly text-primary dark:filter dark:saturate-[70%] relative overflow-hidden -z-10"
     >
       <div className="grid grid-cols-4 gap-4 py-2 place-items-center">
         <WeatherIcon icon={current.weather.icon} size="large" animate />
@@ -79,9 +80,12 @@ const WeatherCard = ({
           {`${Math.round(current.temp)}°C`}
         </motion.h1>
       </div>
-      <p className="font-mono text-right text-primary">{`Low ${Math.round(
+      <h4 className="font-mono text-right text-primary">{`Day ${Math.round(
         minTemp
-      )}°C • High ${Math.round(maxTemp)}°C`}</p>
+      )}°C • Night ${Math.round(maxTemp)}°C`}</h4>
+      <span className="absolute text-[15rem] text-nowrap mix-blend-color-dodge opacity-40 text-primary -z-20">
+        {extractCountry(place_address)}
+      </span>
       <span className="block p-2 my-2 font-semibold tracking-wide text-center rounded bg-surface md:px-4 md:py-3">
         {additionalInfo}
       </span>
@@ -92,9 +96,9 @@ const WeatherCard = ({
           width={20}
           alt="location"
         />
-        <p className="ml-1 tracking-wider text-primary">
+        <h5 className="ml-1 text-primary">
           {`${place_name}, ${place_address.replace(`${place_name}, `, '')}`}
-        </p>
+        </h5>
       </div>
     </div>
   );
