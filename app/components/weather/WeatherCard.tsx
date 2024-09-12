@@ -80,9 +80,9 @@ const WeatherCard = ({
           {`${Math.round(current.temp)}°C`}
         </motion.h1>
       </div>
-      <h4 className="font-mono text-right text-primary">{`Day ${Math.round(
+      <h4 className="font-mono text-right text-primary">{`Night ${Math.round(
         minTemp
-      )}°C • Night ${Math.round(maxTemp)}°C`}</h4>
+      )}°C • Day ${Math.round(maxTemp)}°C`}</h4>
       <span className="absolute text-[15rem] text-nowrap mix-blend-color-dodge opacity-40 text-primary -z-20">
         {extractCountry(place_address)}
       </span>
