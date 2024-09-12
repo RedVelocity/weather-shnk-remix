@@ -15,7 +15,7 @@ export const getWeather = async (
   const exclude = 'minutely,alerts';
   const API_ENDPOINT = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=${exclude}&appid=${OWM_KEY}&units=metric`;
   let formattedData: FormattedData;
-  const res = await fetch(encodeURIComponent(API_ENDPOINT));
+  const res = await fetch(encodeURI(API_ENDPOINT));
   if (!res.ok) {
     throw new Error(res.statusText);
   }
@@ -66,7 +66,7 @@ export const getLocation = async (
   MAPBOX_BACKEND_KEY: string
 ) => {
   const API_ENDPOINT = `https://api.mapbox.com/geocoding/v5/mapbox.places/${searchTerm}.json?access_token=${MAPBOX_BACKEND_KEY}&types=place,locality&language=en&limit=1`;
-  const res = await fetch(encodeURIComponent(API_ENDPOINT));
+  const res = await fetch(encodeURI(API_ENDPOINT));
   if (!res.ok) {
     throw new Error(res.statusText);
   }
@@ -88,7 +88,7 @@ export const getPlaces = async (
       : '';
   const API_ENDPOINT = `https://api.mapbox.com/geocoding/v5/mapbox.places/${searchTerm}.json?access_token=${MAPBOX_BACKEND_KEY}&types=place,locality&language=en&limit=25${proximity}`;
 
-  const res = await fetch(encodeURIComponent(API_ENDPOINT));
+  const res = await fetch(encodeURI(API_ENDPOINT));
   if (!res.ok) {
     throw new Error(res.statusText);
   }
