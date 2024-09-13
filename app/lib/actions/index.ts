@@ -71,7 +71,6 @@ export const getLocation = async (
     throw new Error(res.statusText);
   }
   const data = await res.json<FeatureLocation>();
-  console.log('location', data, API_ENDPOINT);
   const location = formatLocation(data.features[0]);
   return location;
 };
