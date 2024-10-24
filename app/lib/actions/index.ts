@@ -1,11 +1,7 @@
 /* eslint-disable camelcase */
 
-import { FormattedData, WeatherData } from '~/lib/types/weather';
-import {
-  Feature,
-  FeatureLocation,
-  FormattedLocation,
-} from '~/lib/types/location';
+import {FormattedData, WeatherData} from '~/lib/types/weather';
+import {Feature, FeatureLocation, FormattedLocation,} from '~/lib/types/location';
 
 export const getWeather = async (
   latitude: number,
@@ -31,6 +27,7 @@ export const getWeather = async (
       dt: d.dt,
       temp: d.temp,
       weather: d.weather[0],
+      pop: d.pop,
     })),
     hourly: hourly.map((h) => ({
       dt: h.dt,
@@ -71,8 +68,7 @@ export const getLocation = async (
     throw new Error(res.statusText);
   }
   const data = await res.json<FeatureLocation>();
-  const location = formatLocation(data.features[0]);
-  return location;
+  return formatLocation(data.features[0]);
 };
 
 export const getPlaces = async (
@@ -92,6 +88,5 @@ export const getPlaces = async (
     throw new Error(res.statusText);
   }
   const data = await res.json<FeatureLocation>();
-  const places = data.features.map((feature) => formatLocation(feature));
-  return places;
+  return data.features.map((feature) => formatLocation(feature));
 };

@@ -4,7 +4,7 @@ import { FormattedLocation, Theme } from '~/lib/types/location';
 import WeatherIcon from '~/components/Icon/WeatherIcon';
 import getTheme from '~/lib/utils/getTheme';
 import { colors } from '~/styles/colors';
-import extractCountry from '~/lib/utils/extractCountry';
+// import extractCountry from '~/lib/utils/extractCountry';
 
 const variants = {
   animate: { opacity: 1, y: 0 },
@@ -31,6 +31,7 @@ const WeatherCard = ({
 }: {
   weather: FormattedData;
   location: FormattedLocation;
+  photo?: string;
 }) => {
   const { place_name, place_address } = location;
   const { current, daily } = weather;
@@ -50,6 +51,9 @@ const WeatherCard = ({
     <div
       style={{
         backgroundImage: `linear-gradient(140deg, ${colors.cool} 0%, ${colors.mild} 20%, ${colors.milder} 55%, ${colors.hot} 100%)`,
+        // backgroundImage: `url(${photo})`,
+        // backgroundSize: 'cover',
+        // color: 'white',
         backgroundSize: '1800px',
         backgroundPosition,
         transition: 'background-position 500ms linear',
@@ -80,13 +84,14 @@ const WeatherCard = ({
           {`${Math.round(current.temp)}°C`}
         </motion.h1>
       </div>
-      <h4 className="font-mono text-right text-primary">{`Night ${Math.round(
+      <h4 className="font-mono text-right ">{`Night ${Math.round(
         minTemp
       )}°C • Day ${Math.round(maxTemp)}°C`}</h4>
-      <span className="absolute text-[15rem] text-nowrap mix-blend-color-dodge opacity-40 text-primary -z-20">
+      {/* <span className="absolute text-[15rem] text-nowrap mix-blend-color-dodge opacity-40 text-primary -z-20">
         {extractCountry(place_address)}
-      </span>
-      <span className="block p-2 my-2 font-semibold tracking-wide text-center rounded bg-surface md:px-4 md:py-3">
+      </span> */}
+      {/* <div className="absolute inset-0 bg-base-dark opacity-30 -z-20 backdrop-blur-lg"></div> */}
+      <span className="block p-2 my-2 font-semibold tracking-wide text-center rounded bg-surface md:px-4 md:py-3 text-primary">
         {additionalInfo}
       </span>
       <div className="flex items-center space-x-2">
@@ -96,7 +101,7 @@ const WeatherCard = ({
           width={20}
           alt="location"
         />
-        <h5 className="ml-1 text-primary">
+        <h5 className="ml-1 ">
           {`${place_name}, ${place_address.replace(`${place_name}, `, '')}`}
         </h5>
       </div>

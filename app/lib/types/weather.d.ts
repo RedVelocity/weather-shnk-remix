@@ -93,6 +93,7 @@ type FormattedData = {
     dt: number;
     temp: TempDetails;
     weather: Weather;
+    pop: number;
   }[];
   hourly: {
     dt: number;
